@@ -16,13 +16,13 @@ import playn.core.Font;
 import tripleplay.ui.layout.*;
 import react.UnitSlot;
 
-public class TestScreen extends Screen {
+public class GameScreen extends Screen {
   private final ScreenStack ss;
   private final Image bgImage;
   private final Image bbImage;
   private final ImageLayer bg;
   private final ImageLayer bb;
-  public TestScreen(final ScreenStack ss){
+  public GameScreen(final ScreenStack ss){
       this.ss = ss;
 
       bgImage = assets().getImage("images/gameScreen.png");
@@ -31,7 +31,7 @@ public class TestScreen extends Screen {
 
       bbImage = assets().getImage("images/backbutt.png");
       this.bb = graphics().createImageLayer(bbImage);
-      bb.setTranslation(10, 10);
+      bb.setTranslation(10, 400);
 
       bb.addListener(new Mouse.LayerAdapter() {
         @Override

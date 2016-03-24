@@ -16,22 +16,22 @@ import playn.core.Font;
 import tripleplay.ui.layout.*;
 import react.UnitSlot;
 
-public class TestScreen extends Screen {
+public class ShopScreen extends Screen {
   private final ScreenStack ss;
   private final Image bgImage;
   private final Image bbImage;
   private final ImageLayer bg;
   private final ImageLayer bb;
-  public TestScreen(final ScreenStack ss){
+  public ShopScreen(final ScreenStack ss){
       this.ss = ss;
 
-      bgImage = assets().getImage("images/gameScreen.png");
+      bgImage = assets().getImage("images/ShopScreen.png");
       this.bg = graphics().createImageLayer(bgImage);
       
 
       bbImage = assets().getImage("images/backbutt.png");
       this.bb = graphics().createImageLayer(bbImage);
-      bb.setTranslation(10, 10);
+      bb.setTranslation(10, 400);
 
       bb.addListener(new Mouse.LayerAdapter() {
         @Override
@@ -39,6 +39,7 @@ public class TestScreen extends Screen {
           ss.remove(ss.top()); //pop
         }
       });
+
       this.layer.add(bg);
       this.layer.add(bb);
   }

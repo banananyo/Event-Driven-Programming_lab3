@@ -30,6 +30,7 @@ public class HomeScreen extends UIScreen {
   private final ImageLayer bg;*/
   private final Image cImage;
   private final ImageLayer c;
+
   public HomeScreen(final ScreenStack ss){
       this.ss = ss;
       root = iface.createRoot(AxisLayout.vertical().gap(15), SimpleStyles.newSheet(), layer);
@@ -50,22 +51,22 @@ public class HomeScreen extends UIScreen {
       root.add(new Label("RUNNING SAMURAI!!!").addStyles(Style.FONT.is(HomeScreen.TITLE_FONT)));
       root.add(start.onClick(new UnitSlot() {
         public void onEmit() {
-          ss.push(new TestScreen(ss));
+          ss.push(new GameScreen(ss));
         }
       }));
       root.add(setting.onClick(new UnitSlot() {
         public void onEmit() {
-          ss.push(new TestScreen(ss));
+          ss.push(new SettingScreen(ss));
         }
       }));
       root.add(loadsave.onClick(new UnitSlot() {
         public void onEmit() {
-          ss.push(new TestScreen(ss));
+          ss.push(new LoadSaveScreen(ss));
         }
       }));
       root.add(shop.onClick(new UnitSlot() {
         public void onEmit() {
-          ss.push(new TestScreen(ss));
+          ss.push(new ShopScreen(ss));
         }
       }));
   }
