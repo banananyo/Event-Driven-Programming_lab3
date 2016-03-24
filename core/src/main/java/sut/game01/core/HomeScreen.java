@@ -22,7 +22,7 @@ public class HomeScreen extends UIScreen {
   private final ScreenStack ss;
 
   private Root root;
-  private final Button start = new Button("start");
+  private final Button start = new Button("Play");
   private final Button setting = new Button("setting");
   private final Button loadsave = new Button("load/save");
   private final Button shop = new Button("shop");
