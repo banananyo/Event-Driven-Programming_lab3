@@ -15,36 +15,25 @@ import tripleplay.ui.*;
 import playn.core.Font;
 import tripleplay.ui.layout.*;
 import react.UnitSlot;
+import sut.game01.core.character.*;
 
 public class GameScreen extends Screen {
   private final ScreenStack ss;
-  private final Image bgImage;
-  private final Image bbImage;
-  private final ImageLayer bg;
-  private final ImageLayer bb;
-  public GameScreen(final ScreenStack ss){
+    private Zealot zealot;
+
+  public GameScreen(final ScreenStack ss,ImageLayer bb,ImageLayer bg){
       this.ss = ss;
-
-      bgImage = assets().getImage("images/gameScreen.png");
-      this.bg = graphics().createImageLayer(bgImage);
-      
-
-      bbImage = assets().getImage("images/backbutt.png");
-      this.bb = graphics().createImageLayer(bbImage);
-      bb.setTranslation(10, 400);
-
-      bb.addListener(new Mouse.LayerAdapter() {
-        @Override
-        public void onMouseUp(Mouse.ButtonEvent event) {
-          ss.remove(ss.top()); //pop
-        }
-      });
-      this.layer.add(bg);
-      this.layer.add(bb);
+      //this.layer.add(bg);
+      //this.layer.add(bb);
   }
+  @Override
   public void wasShown (){
     super.wasShown();
-
+    zealot = new Zealot(width()-100f,height()-100f);
+    this.layer.add(zealot.layer());
   }
+    public void update(int delta) {
+        this.zealot.update(delta);
+    }
 
 }
