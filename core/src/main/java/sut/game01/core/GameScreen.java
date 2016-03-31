@@ -17,23 +17,28 @@ import tripleplay.ui.layout.*;
 import react.UnitSlot;
 import sut.game01.core.character.*;
 
+import playn.core.util.Callback;
+import sut.game01.core.sprite.Sprite;
+import sut.game01.core.sprite.SpriteLoader;
+
 public class GameScreen extends Screen {
   private final ScreenStack ss;
-    private Zealot zealot;
+  private Samurai samurai;
 
   public GameScreen(final ScreenStack ss,ImageLayer bb,ImageLayer bg){
       this.ss = ss;
-      //this.layer.add(bg);
-      //this.layer.add(bb);
+      this.layer.add(bg);
+      this.layer.add(bb);
   }
   @Override
   public void wasShown (){
     super.wasShown();
-    zealot = new Zealot(width()-100f,height()-100f);
-    this.layer.add(zealot.layer());
+    samurai = new Samurai(350f,200f);
+    this.layer.add(samurai.layer());
   }
     public void update(int delta) {
-        this.zealot.update(delta);
+        this.samurai.update(delta);
+
     }
 
 }
